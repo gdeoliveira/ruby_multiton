@@ -1,0 +1,51 @@
+version: "2"
+services:
+  cli:
+    extends:
+      service: img
+    volumes:
+      - ./:/opt/app/
+  coverage:
+    command: ["bundle", "exec", "rake", "coverage:server"]
+    extends:
+      service: img
+    ports:
+      - 3000:3000
+    volumes:
+      - coverage:/opt/app/coverage/
+  document:
+    command: ["bundle", "exec", "rake", "rdoc:server[3001]"]
+    extends:
+      service: img
+    ports:
+      - 3001:3001
+    volumes:
+      - document:/opt/app/doc/
+  guard:
+    command: ["bundle", "exec", "guard", "-i"]
+    extends:
+      service: cli
+  img:
+    build: ./
+    image: ruby-multiton
+  rdoc:
+    command: ["bundle", "exec", "rake", "rdoc"]
+    extends:
+      service: cli
+    volumes:
+      - document:/opt/app/doc/
+  release:
+    command: ["bundle", "exec", "rake", "release:safe"]
+    extends:
+      service: cli
+    volumes:
+      - ~/.ssh/:/root/.ssh/
+  test:
+    command: ["bundle", "exec", "rake", "coverage"]
+    extends:
+      service: cli
+    volumes:
+      - coverage:/opt/app/coverage/
+volumes:
+  coverage:
+  document:
