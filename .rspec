@@ -1,2 +1,5 @@
---format documentation
 --color
+--format documentation
+--order random
+--profile
+--require spec_helper

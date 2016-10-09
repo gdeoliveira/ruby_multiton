@@ -1,8 +1,8 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('../lib'.freeze, __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'ruby/multiton/version'
+require 'multiton/version'.freeze
 
 Gem::Specification.new do |spec|
   spec.author = "Gabriel de Oliveira".freeze
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   ]
   spec.name = "ruby-multiton".freeze
   spec.summary = "Ruby Multiton pattern implementation.".freeze
-  spec.version = Ruby::Multiton::VERSION
+  spec.version = Multiton::VERSION
 
   spec.email = "deoliveira.gab@gmail.com".freeze
   spec.homepage = "https://github.com/gdeoliveira/ruby-multiton".freeze
@@ -29,6 +29,8 @@ Gem::Specification.new do |spec|
     "lib/".freeze
   ].freeze
 
+  spec.add_runtime_dependency "extensible".freeze
+
   spec.add_development_dependency "bundler".freeze
   spec.add_development_dependency "codeclimate-test-reporter".freeze
   spec.add_development_dependency "guard-rspec".freeze
@@ -39,6 +41,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rdoc".freeze
   spec.add_development_dependency "ruby_gntp".freeze
   spec.add_development_dependency "simplecov".freeze
-
-  spec.add_runtime_dependency "extensible".freeze
 end
