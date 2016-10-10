@@ -1,8 +1,8 @@
 # coding: utf-8
-lib = File.expand_path('../lib'.freeze, __FILE__)
+lib = File.expand_path("../lib".freeze, __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'multiton/version'.freeze
+require "multiton/version".freeze
 
 Gem::Specification.new do |spec|
   spec.author = "Gabriel de Oliveira".freeze
