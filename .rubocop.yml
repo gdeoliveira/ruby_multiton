@@ -6,6 +6,8 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "tasks/*.rake"
+Metrics/BlockLength:
+  Enabled: false
 Metrics/LineLength:
   Max: 120
 Style/HashSyntax:
