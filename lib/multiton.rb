@@ -22,6 +22,10 @@ module Multiton
     instance(*Marshal.load(key))
   end
 
+  def clone
+    super.tap {|klass| klass.instance_variable_set(:@__multiton_instances, {}) }
+  end
+
   def dup
     super.tap {|klass| klass.instance_variable_set(:@__multiton_instances, {}) }
   end
@@ -37,10 +41,6 @@ module Multiton
 
   def inherited(subclass)
     super.tap { subclass.instance_variable_set(:@__multiton_instances, {}) }
-  end
-
-  def initialize_copy(_source)
-    super.tap { @__multiton_instances = {} }
   end
 
   def new(*args)
