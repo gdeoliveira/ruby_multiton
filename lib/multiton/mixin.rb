@@ -13,7 +13,7 @@ module Multiton
     private
 
     def _dump(_level)
-      self.class.multiton_key self
+      self.class.instance_variable_get(:@__multiton_instances).key(self)
     end
   end
 end

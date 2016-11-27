@@ -13,40 +13,32 @@ module Multiton
     end
 
     klass.include Mixin
-    klass.instance_variable_set(:@multiton_instances, {})
+    klass.instance_variable_set(:@__multiton_instances, {})
   end
 
   def dup
-    super.tap do |klass|
-      klass.instance_variable_set(:@multiton_instances, {})
-    end
+    super.tap {|klass| klass.instance_variable_set(:@__multiton_instances, {}) }
   end
 
   def instance(*args)
-    # TODO: Should the key be frozen for earlier versions of Ruby?
-    multiton_instances[Marshal.dump(args)] ||= new(*args)
-  end
-
-  # TODO: Should this be private?
-  def multiton_key(instance)
-    multiton_instances.key(instance)
+    @__multiton_instances[Marshal.dump(args)] ||= new(*args)
   end
 
   private
-
-  attr_accessor :multiton_instances
 
   def _load(key)
     instance(*Marshal.load(key))
   end
 
   def allocate
-    super
+  end
+
+  def inherited(subclass)
+    super.tap { subclass.instance_variable_set(:@__multiton_instances, {}) }
   end
 
   def initialize_copy(_source)
-    super
-    self.multiton_instances = {}
+    super.tap { @__multiton_instances = {} }
   end
 
   def new(*args)
