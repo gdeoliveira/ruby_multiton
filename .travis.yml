@@ -1,5 +1,28 @@
-sudo: false
+before_install: rm coverage
+gemfile: gemfiles/travis.rb
 language: ruby
+matrix:
+  allow_failures:
+    - rvm: jruby-head
+    - rvm: mruby-head
+  include:
+    - rvm: 1.8.7
+      gemfile: gemfiles/travis_1.8.7.rb
+    - rvm: 1.9.2
+      gemfile: gemfiles/travis_1.9.2.rb
+    - rvm: 1.9.3
+      gemfile: gemfiles/travis_1.9.3.rb
+    - rvm: ree
+      gemfile: gemfiles/travis_1.8.7.rb
 rvm:
-  - 2.3.1
-before_install: gem install bundler -v 1.13.2
+- 2.0
+- 2.1
+- 2.2
+- 2.3.0
+- 2.3.1
+- jruby-1.7
+- jruby-9
+- jruby-head
+- mruby-head
+- rbx-2
+- ruby-head
