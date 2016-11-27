@@ -9,5 +9,6 @@ task :coverage do
     Rake::Task["test"].invoke
   rescue SystemExit
     system "bundle exec codeclimate-test-reporter"
+    raise
   end
 end
