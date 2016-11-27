@@ -31,5 +31,4 @@ rvm:
 - jruby-9.1.5.0
 - jruby-head
 - mruby-head
-- rbx
 - ruby-head
