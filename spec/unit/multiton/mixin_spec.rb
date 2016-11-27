@@ -26,7 +26,7 @@ describe Multiton::Mixin do
   describe "#_dump" do
     let(:object) { object_double(subject) }
 
-    it "is called when marshaling the object" do
+    it "is called when marshaling" do
       expect(object).to receive(:_dump).once.and_return("a dummy string")
       Marshal.dump(object)
     end
