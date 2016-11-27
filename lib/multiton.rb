@@ -18,6 +18,10 @@ module Multiton
     end
   end
 
+  def _load(key)
+    instance(*Marshal.load(key))
+  end
+
   def dup
     super.tap {|klass| klass.instance_variable_set(:@__multiton_instances, {}) }
   end
@@ -27,10 +31,6 @@ module Multiton
   end
 
   private
-
-  def _load(key)
-    instance(*Marshal.load(key))
-  end
 
   def allocate
   end
