@@ -1,9 +1,11 @@
+require "multiton/utils".freeze
+
 module Multiton
   ##
   # TODO: Add documentation.
   module Mixin
     def _dump(_level)
-      self.class.instance_variable_get(:@__multiton_instances).key(self)
+      Utils.hash_key(self.class.instance_variable_get(:@__multiton_instances), self)
     end
 
     def clone
