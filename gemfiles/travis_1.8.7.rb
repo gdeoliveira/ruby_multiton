@@ -1,5 +1,6 @@
 source "https://rubygems.org".freeze
 
+gem "extensible".freeze
 gem "rspec".freeze
 gem "simplecov".freeze
 
