@@ -12,8 +12,10 @@ module Multiton
       raise TypeError, "expected to extend object of type `Class` with module `#{name}`, got `#{klass.class}` instead"
     end
 
-    klass.include Mixin
-    klass.instance_variable_set(:@__multiton_instances, {})
+    klass.class_eval do
+      include Mixin
+      @__multiton_instances = {}
+    end
   end
 
   def dup
