@@ -7,8 +7,12 @@ gemfile: gemfiles/travis.rb
 language: ruby
 matrix:
   allow_failures:
+    - rvm: jruby-1.7.26
+    - rvm: jruby-9.0.5.0
+    - rvm: jruby-9.1.5.0
     - rvm: jruby-head
     - rvm: mruby-head
+    - rvm: rbx-2
   include:
     - rvm: 1.8.7
       gemfile: gemfiles/travis_1.8.7.rb
@@ -31,4 +35,5 @@ rvm:
 - jruby-9.1.5.0
 - jruby-head
 - mruby-head
+- rbx-2
 - ruby-head
