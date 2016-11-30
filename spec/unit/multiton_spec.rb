@@ -10,8 +10,7 @@ describe Multiton do
 
       private
 
-      def initialize(*args)
-      end
+      def initialize(*args); end
     end
   end
 

@@ -32,8 +32,7 @@ module Multiton
 
   private
 
-  def allocate
-  end
+  def allocate; end
 
   def inherited(subclass)
     super.tap { subclass.instance_variable_set(:@__multiton_instances, {}) }
