@@ -12,12 +12,12 @@ Gem::Specification.new do |spec|
     "README.*".freeze,
     "liv/**/*.rb".freeze
   ]
-  spec.name = "ruby-multiton".freeze
+  spec.name = "ruby_multiton".freeze
   spec.summary = "Ruby Multiton pattern implementation.".freeze
   spec.version = Multiton::VERSION
 
   spec.email = "deoliveira.gab@gmail.com".freeze
-  spec.homepage = "https://github.com/gdeoliveira/ruby-multiton".freeze
+  spec.homepage = "https://github.com/gdeoliveira/ruby_multiton".freeze
   spec.license = "MIT".freeze
 
   spec.description = "Ruby Multiton pattern implementation.".freeze

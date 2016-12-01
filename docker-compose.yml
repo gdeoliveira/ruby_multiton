@@ -27,7 +27,7 @@ services:
       service: cli
   img:
     build: ./
-    image: ruby-multiton
+    image: ruby_multiton
   rdoc:
     command: ["bundle", "exec", "rake", "rdoc"]
     extends:
