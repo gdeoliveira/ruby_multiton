@@ -1,3 +1,6 @@
 # frozen_string_literal: true
 
-SimpleCov.start { add_filter "/spec/" }
+SimpleCov.start do
+  command_name "Unit Tests"
+  add_filter "/spec/"
+end
