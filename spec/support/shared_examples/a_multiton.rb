@@ -64,8 +64,10 @@ shared_examples "a multiton" do
     end
 
     describe "marshalling" do
+      # rubocop:disable Security/MarshalLoad
       let(:marshalled_object) { Marshal.load(Marshal.dump(object)) }
       let(:other_marshalled_object) { Marshal.load(Marshal.dump(other_object)) }
+      # rubocop:enable Security/MarshalLoad
 
       it "generates the same instances" do
         # We need to give the anonymous class a name so it can be marshalled.
@@ -79,7 +81,7 @@ shared_examples "a multiton" do
   end
 
   describe "marshalling" do
-    let(:marshalled_class) { Marshal.load(Marshal.dump(subject)) }
+    let(:marshalled_class) { Marshal.load(Marshal.dump(subject)) } # rubocop:disable Security/MarshalLoad
 
     context "when passing the same arguments" do
       it "generates the same instance than the original class" do

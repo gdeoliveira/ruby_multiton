@@ -19,7 +19,7 @@ module Multiton
   end
 
   def _load(key)
-    instance(*Marshal.load(key))
+    instance(*Marshal.load(key)) # rubocop:disable Security/MarshalLoad
   end
 
   def dup
