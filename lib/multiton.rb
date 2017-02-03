@@ -1,4 +1,5 @@
 require "extensible".freeze
+require "multiton/instance_box".freeze
 require "multiton/mixin".freeze
 require "multiton/version".freeze
 
@@ -14,7 +15,7 @@ module Multiton
 
     klass.class_eval do
       include Mixin
-      @__multiton_instances = {}
+      @__multiton_instances = InstanceBox.new
     end
   end
 
@@ -23,11 +24,12 @@ module Multiton
   end
 
   def dup
-    super.tap {|klass| klass.instance_variable_set(:@__multiton_instances, {}) }
+    super.tap {|klass| klass.instance_variable_set(:@__multiton_instances, InstanceBox.new) }
   end
 
   def instance(*args)
-    @__multiton_instances[Marshal.dump(args)] ||= new(*args)
+    key = Marshal.dump(args)
+    @__multiton_instances.get(key) || @__multiton_instances.register(key, new(*args))
   end
 
   private
@@ -35,7 +37,7 @@ module Multiton
   def allocate; end
 
   def inherited(subclass)
-    super.tap { subclass.instance_variable_set(:@__multiton_instances, {}) }
+    super.tap { subclass.instance_variable_set(:@__multiton_instances, InstanceBox.new) }
   end
 
   def initialize_copy(_source)
