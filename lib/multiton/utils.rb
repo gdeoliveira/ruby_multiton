@@ -8,9 +8,11 @@ module Multiton
           hash.key value
         end
       else
+        # :nocov:
         def hash_key(hash, value)
           hash.index value
         end
+        # :nocov:
       end
     end
   end
