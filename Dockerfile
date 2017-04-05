@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Gabriel de Oliveira <deoliveira.gab@gmail.com>
+LABEL maintainer "Gabriel de Oliveira <deoliveira.gab@gmail.com>"
 
 WORKDIR /opt/app
 COPY . .

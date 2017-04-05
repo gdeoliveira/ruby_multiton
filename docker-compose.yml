@@ -1,51 +1,53 @@
-version: "2"
+version: "3"
 services:
   cli:
-    extends:
-      service: img
+    build: ./
+    image: ruby_multiton
     volumes:
-      - ./:/opt/app/
+      - ./:/opt/app/:ro
   coverage:
+    build: ./
     command: ["bundle", "exec", "rake", "coverage:server"]
-    extends:
-      service: img
+    image: ruby_multiton
     ports:
       - 3000:3000
     volumes:
-      - coverage:/opt/app/coverage/
+      - coverage:/opt/app/coverage/:ro
   document:
-    command: ["bundle", "exec", "rake", "rdoc:server[3001]"]
-    extends:
-      service: img
-    ports:
-      - 3001:3001
-    volumes:
-      - document:/opt/app/doc/
-  guard:
-    command: ["bundle", "exec", "guard", "-i"]
-    extends:
-      service: cli
-  img:
     build: ./
+    command: ["bundle", "exec", "rake", "rdoc:server"]
     image: ruby_multiton
+    ports:
+      - 3001:3000
+    volumes:
+      - document:/opt/app/doc/:ro
+  guard:
+    build: ./
+    command: ["bundle", "exec", "guard", "-i"]
+    image: ruby_multiton
+    volumes:
+      - ./:/opt/app/:ro
   rdoc:
+    build: ./
     command: ["bundle", "exec", "rake", "rdoc"]
-    extends:
-      service: cli
+    image: ruby_multiton
     volumes:
-      - document:/opt/app/doc/
+      - ./:/opt/app/:ro
+      - document:/opt/app/doc/:rw
   release:
+    build: ./
     command: ["bundle", "exec", "rake", "release:safe"]
-    extends:
-      service: cli
+    image: ruby_multiton
     volumes:
-      - ~/.ssh/:/root/.ssh/
+      - ./:/opt/app/:ro
+      - ~/.ssh/:/root/.ssh/:ro
   test:
+    build: ./
     command: ["bundle", "exec", "rake", "coverage"]
-    extends:
-      service: cli
+    image: ruby_multiton
     volumes:
-      - coverage:/opt/app/coverage/
+      - ./:/opt/app/:ro
+      - coverage:/opt/app/coverage/:rw
 volumes:
   coverage:
   document:
