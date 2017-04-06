@@ -4,7 +4,7 @@ services:
     build: ./
     image: ruby_multiton
     volumes:
-      - ./:/opt/app/:ro
+      - ./:/opt/app/:rw
   coverage:
     build: ./
     command: ["bundle", "exec", "rake", "coverage:server"]

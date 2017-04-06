@@ -9,7 +9,7 @@ namespace :coverage do
   task :server, [:port] do |_, args|
     server = WEBrick::HTTPServer.new(:DocumentRoot => "coverage/", :Port => args[:port] || COVERAGE_SERVER_PORT)
     shutdown = proc { server.shutdown }
-    %w(INT TERM).each {|signal| trap(signal, &shutdown) }
+    %w[INT TERM].each {|signal| trap(signal, &shutdown) }
     server.start
   end
 end
