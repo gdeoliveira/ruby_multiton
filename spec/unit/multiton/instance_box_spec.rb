@@ -25,7 +25,7 @@ describe Multiton::InstanceBox do
     end
 
     expect(sync).not_to be_locked
-    instance_box.register(key, instance)
+    instance_box.store(key, instance)
   end
 
   after(:each) { expect(sync).not_to be_locked }

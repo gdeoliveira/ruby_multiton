@@ -78,31 +78,88 @@ module Multiton
     end
   end
 
-  def _load(key)
-    instance(*Marshal.load(key)) # rubocop:disable Security/MarshalLoad
+  ##
+  # call-seq:
+  #   _load(args_string) => an_instance
+  #
+  # Creates or reconstitutes a multiton instance from +args_string+, which is a marshalled representation of the +key+
+  # argument(s) passed to #instance.
+  #
+  # Returns a multiton instance.
+  def _load(args_string)
+    instance(*Marshal.load(args_string)) # rubocop:disable Security/MarshalLoad
   end
 
+  ##
+  # call-seq:
+  #   dup => a_class
+  #
+  # Creates a duplicate of the multiton class. Instances will not be shared between the original and duplicate classes.
+  #
+  # Returns a new class.
   def dup
     super.tap {|klass| klass.instance_variable_set(:@__multiton_instances, InstanceBox.new) }
   end
 
-  def instance(*args)
-    key = Marshal.dump(args)
-    @__multiton_instances.get(key) || @__multiton_instances.register(key, new(*args))
+  ##
+  # call-seq:
+  #   instance(*args_key) => an_instance
+  #
+  # Creates or retrieves the instance corresponding to +args_key+.
+  #
+  # Returns a multiton instance.
+  def instance(*args_key)
+    key = Marshal.dump(args_key)
+    @__multiton_instances.get(key) || @__multiton_instances.store(key, new(*args_key))
   end
 
   private
 
+  ##
+  # call-seq:
+  #   allocate => nil
+  #
+  # Empty implementation of the +allocate+ method to block the original implemented in +Class+. Effectively does
+  # nothing.
+  #
+  # Returns +nil+.
   def allocate; end
 
+  ##
+  # call-seq:
+  #   inherited(subclass) => nil
+  #
+  # This is called when a multiton class is inherited to properly initialize +subclass+. Instances will not be shared
+  # between the superclass and its subclasses.
+  #
+  # Returns +nil+.
   def inherited(subclass)
-    super.tap { subclass.instance_variable_set(:@__multiton_instances, InstanceBox.new) }
+    super
+    subclass.instance_variable_set(:@__multiton_instances, InstanceBox.new)
+    nil
   end
 
+  ##
+  # call-seq:
+  #   initialize_copy(source) => self
+  #
+  # This is called (on the clone) when a multiton class (+source+) is cloned to properly initialize it. Instances will
+  # not be shared between the original and cloned classes.
+  #
+  # Returns +self+.
   def initialize_copy(_source)
-    super.tap { extend Multiton }
+    super
+    extend Multiton
+    self
   end
 
+  ##
+  # call-seq:
+  #   new(*args) => new_instance
+  #
+  # Creates a new multiton instance and initializes it by passing +args+ to its constructor.
+  #
+  # Returns a new multiton instance.
   def new(*args)
     super
   end
