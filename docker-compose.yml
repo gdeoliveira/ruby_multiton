@@ -39,7 +39,7 @@ services:
     command: ["bundle", "exec", "rake", "release:safe"]
     image: ruby_multiton
     volumes:
-      - ./:/opt/app/:ro
+      - ./:/opt/app/:rw
       - ~/.ssh/:/root/.ssh/:ro
   test:
     build: ./
