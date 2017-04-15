@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
     "*.gemspec".freeze,
     "LICENSE.*".freeze,
     "README.*".freeze,
-    "liv/**/*.rb".freeze
+    "lib/**/*.rb".freeze
   ]
   spec.name = "ruby_multiton".freeze
   spec.summary = "Ruby Multiton pattern implementation.".freeze
