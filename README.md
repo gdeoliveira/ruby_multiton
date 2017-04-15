@@ -1,36 +1,12 @@
-# Ruby::Multiton
+# Multiton
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library
-into a gem. Put your Ruby code in the file `lib/multiton`.
+[![Gem Version](http://img.shields.io/gem/v/ruby_multiton.svg)][gem]
+[![Build Status](http://img.shields.io/travis/gdeoliveira/ruby_multiton/master.svg)][travis]
+[![Code Climate](http://img.shields.io/codeclimate/github/gdeoliveira/ruby_multiton.svg)][codeclimate]
+[![Test Coverage](http://img.shields.io/codeclimate/coverage/github/gdeoliveira/ruby_multiton.svg)][codeclimate]
+[![Inline docs](http://inch-ci.org/github/gdeoliveira/ruby_multiton.svg?branch=master)][inch-ci]
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'ruby-multiton'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ruby-multiton
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/gdeoliveira/ruby-multiton. This project is
-intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor
-Covenant](http://contributor-covenant.org) code of conduct.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+[gem]: https://rubygems.org/gems/ruby_multiton
+[travis]: http://travis-ci.org/gdeoliveira/ruby_multiton/branches
+[codeclimate]: https://codeclimate.com/github/gdeoliveira/ruby_multiton
+[inch-ci]: http://inch-ci.org/github/gdeoliveira/ruby_multiton
