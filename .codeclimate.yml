@@ -12,6 +12,3 @@ engines:
 ratings:
   paths:
   - "lib/**.rb"
-exclude_paths:
-- "**"
-- "!lib/"
