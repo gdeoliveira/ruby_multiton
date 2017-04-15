@@ -1,3 +1,6 @@
+addons:
+  code_climate:
+    repo_token: 9188009ca208f59c584e066297b7278bd9ccf6e8fdb0fef8144fe3956075e216
 before_install: rm coverage
 gemfile: gemfiles/travis.rb
 language: ruby
