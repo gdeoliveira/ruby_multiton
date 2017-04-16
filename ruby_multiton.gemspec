@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.rdoc_options = [
     "--main=README.md".freeze,
     "--title=Multiton".freeze,
-    "LICENSE.txt".freeze,
+    "LICENSE.md".freeze,
     "README.md".freeze,
     "lib/".freeze
   ].freeze
