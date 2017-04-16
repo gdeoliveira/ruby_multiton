@@ -141,9 +141,9 @@ module Multiton
 
   ##
   # call-seq:
-  #   initialize_copy(source) => self
+  #   initialize_copy(_source) => self
   #
-  # This is called (on the clone) when a multiton class (+source+) is cloned to properly initialize it. Instances will
+  # This is called (on the clone) when a multiton class (+_source+) is cloned to properly initialize it. Instances will
   # not be shared between the original and cloned classes.
   #
   # Returns +self+.

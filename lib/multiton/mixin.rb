@@ -4,11 +4,12 @@ module Multiton
   module Mixin
     ##
     # call-seq:
-    #   _dump(level) => string
+    #   _dump(_level) => string
     #
-    # Serializes the instance as a string that can be reconstituted at a later point.
+    # Serializes the instance as a string that can be reconstituted at a later point. The parameter +_level+ is not
+    # used, but it is needed for marshalling to work correctly.
     #
-    # Returns string.
+    # Returns a string representing the serialized multiton instance.
     def _dump(_level)
       self.class.instance_variable_get(:@__multiton_instances).key self
     end
