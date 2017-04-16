@@ -6,7 +6,7 @@ gemfile: gemfiles/travis.rb
 language: ruby
 matrix:
   allow_failures:
-    # TODO: Disallow failures for jruby-1.7 and jruby-9 once https://github.com/jruby/jruby/issues/4340 is solved.
+    # Disallow failures for jruby-1.7 and jruby-9 once https://github.com/jruby/jruby/issues/4340 is solved.
     - rvm: jruby-1.7.26
     - rvm: jruby-9.1.5.0
   include:
