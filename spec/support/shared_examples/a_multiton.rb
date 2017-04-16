@@ -3,6 +3,21 @@
 shared_examples "a multiton" do
   let(:args) { [123, :symbol, "String"] }
 
+  def expect_class_to_be_a_multiton(klass)
+    expect(klass).to be_a(Multiton)
+    expect(klass.instance(*args)).to be(klass.instance(*args))
+  end
+
+  def expect_generated_instances_to_be_the_same(klass_1, klass_2)
+    [klass_1, klass_2].each {|klass| expect_class_to_be_a_multiton(klass) }
+    expect(klass_1.instance(*args)).to be(klass_2.instance(*args))
+  end
+
+  def expect_generated_instances_to_be_different(klass_1, klass_2)
+    [klass_1, klass_2].each {|klass| expect_class_to_be_a_multiton(klass) }
+    expect(klass_1.instance(*args)).not_to be(klass_2.instance(*args))
+  end
+
   describe Multiton::Mixin do
     it "is an ancestor" do
       expect(subject.ancestors).to include(described_class)
@@ -20,9 +35,7 @@ shared_examples "a multiton" do
 
     context "when passing the same arguments" do
       it "generates a different instance than the original class" do
-        expect(subject.instance(*args)).to be(subject.instance(*args))
-        expect(clone.instance(*args)).to be(clone.instance(*args))
-        expect(subject.instance(*args)).not_to be(clone.instance(*args))
+        expect_generated_instances_to_be_different(subject, clone)
       end
     end
   end
@@ -32,9 +45,7 @@ shared_examples "a multiton" do
 
     context "when passing the same arguments" do
       it "generates a different instance than the original class" do
-        expect(subject.instance(*args)).to be(subject.instance(*args))
-        expect(duplicate.instance(*args)).to be(duplicate.instance(*args))
-        expect(subject.instance(*args)).not_to be(duplicate.instance(*args))
+        expect_generated_instances_to_be_different(subject, duplicate)
       end
     end
   end
@@ -85,10 +96,7 @@ shared_examples "a multiton" do
       it "generates the same instance than the original class" do
         # We need to give the anonymous class a name so it can be marshalled.
         stub_const("Klass", subject)
-
-        expect(Klass.instance(*args)).to be(Klass.instance(*args))
-        expect(marshalled_class.instance(*args)).to be(marshalled_class.instance(*args))
-        expect(Klass.instance(*args)).to be(marshalled_class.instance(*args))
+        expect_generated_instances_to_be_the_same(Klass, marshalled_class)
       end
     end
   end
@@ -98,9 +106,7 @@ shared_examples "a multiton" do
 
     context "when passing the same arguments" do
       it "generates a different instance than the original class" do
-        expect(subject.instance(*args)).to be(subject.instance(*args))
-        expect(subclass.instance(*args)).to be(subclass.instance(*args))
-        expect(subject.instance(*args)).not_to be(subclass.instance(*args))
+        expect_generated_instances_to_be_different(subject, subclass)
       end
     end
   end
