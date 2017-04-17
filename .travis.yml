@@ -1,23 +1,23 @@
 addons:
   code_climate:
-    repo_token: 9188009ca208f59c584e066297b7278bd9ccf6e8fdb0fef8144fe3956075e216
+    repo_token:
+      secure: nuE7bq1n0NG5DoBaJcmye73FB7+jNN61h+Pnvbu/xI9WxVTjSjId7RYATMAIDJ/re2UEtXhjk/d0cmWKXN5liHNFBIjHyKJ1YmgfgB32WB/V2ACs5tUI8KbmIA8v05pXch8sE6tuSWkBQXDbc1Y4e9bOY0ZjqQMSL1wOpEG7ztNWnT1K1fUI51WTlD3GWiJN1VXiY2qPRXktCjju+/+omKhXNP31t29J5Kj7pBbtz9j/Y7J3TF1l3UGz6FzRRry1KvFf6nNAesbahsinSmkPQBGGaRcefDCq8j6AOAbuLqmffeFE/Wv6njERwgNihgA79lSD9nv6tOsKt0BWpsl896PyeTOIZ4H/qFroWnp4Werv7zNNUQx4ZnA/yoRT8kS/U0BBVPnyZ4yMgn264VZ0+6aAp8ox9vj7d51IzP1vjeokH216vN45TEHP8Hngcq5fO0hEA0SO6YaE0Yw3e0jlCf3KFGiqO7TaJIV9RPyqZfAFDpaubBULbGu2XdHLGw6QeIPIR5mqnQKt0BiZqTM+YY7cTemi+MT7pIt82yklkhT2TdYKeEVUpqaa0ABlGlecwz4cw8CXZZVBXhuMuFaSqFaMoWwLcDEzwm0FR68V4JdrBp+fiIGB2G9KZ0aaY5gfZy7LUhhI/C1OIIVceVP0DpXQTlQyAcIZY1799B9HlD8=
 before_install: rm coverage
 gemfile: gemfiles/travis.rb
 language: ruby
 matrix:
   allow_failures:
-    # Disallow failures for jruby-1.7 and jruby-9 once https://github.com/jruby/jruby/issues/4340 is solved.
-    - rvm: jruby-1.7.26
-    - rvm: jruby-9.1.5.0
+  - rvm: jruby-1.7.26
+  - rvm: jruby-9.1.5.0
   include:
-    - rvm: 1.8.7
-      gemfile: gemfiles/travis_1.8.7.rb
-    - rvm: 1.9.2
-      gemfile: gemfiles/travis_1.9.2.rb
-    - rvm: 1.9.3
-      gemfile: gemfiles/travis_1.9.3.rb
-    - rvm: ree
-      gemfile: gemfiles/travis_1.8.7.rb
+  - rvm: 1.8.7
+    gemfile: gemfiles/travis_1.8.7.rb
+  - rvm: 1.9.2
+    gemfile: gemfiles/travis_1.9.2.rb
+  - rvm: 1.9.3
+    gemfile: gemfiles/travis_1.9.3.rb
+  - rvm: ree
+    gemfile: gemfiles/travis_1.8.7.rb
 rvm:
 - 2.0.0-p648
 - 2.1.10
