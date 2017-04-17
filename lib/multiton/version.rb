@@ -1,5 +1,5 @@
 module Multiton
   ##
   # Current version of Multiton.
-  VERSION = "0.0.2.pre".freeze
+  VERSION = "0.0.3.pre".freeze
 end
