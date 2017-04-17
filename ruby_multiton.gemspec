@@ -14,7 +14,6 @@ Gem::Specification.new do |spec|
     "lib/**/*.rb".freeze
   ]
   spec.name = "ruby_multiton".freeze
-  spec.require_paths = ["lib".freeze].freeze
   spec.summary = "Multiton pattern implementation for Ruby".freeze
   spec.version = Multiton::VERSION
 
