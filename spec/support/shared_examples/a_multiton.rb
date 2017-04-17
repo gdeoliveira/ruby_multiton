@@ -3,18 +3,18 @@
 shared_examples "a multiton" do
   let(:args) { [123, :symbol, "String"] }
 
-  def expect_class_to_be_a_multiton(klass)
-    expect(klass).to be_a(Multiton)
-    expect(klass.instance(*args)).to be(klass.instance(*args))
+  def expect_classes_to_be_multitons(*klasses)
+    expect(klasses).to all(be_a(Multiton))
+    klasses.each {|klass| expect(klass.instance(*args)).to be(klass.instance(*args)) }
   end
 
   def expect_generated_instances_to_be_the_same(klass_1, klass_2)
-    [klass_1, klass_2].each {|klass| expect_class_to_be_a_multiton(klass) }
+    expect_classes_to_be_multitons(klass_1, klass_2)
     expect(klass_1.instance(*args)).to be(klass_2.instance(*args))
   end
 
   def expect_generated_instances_to_be_different(klass_1, klass_2)
-    [klass_1, klass_2].each {|klass| expect_class_to_be_a_multiton(klass) }
+    expect_classes_to_be_multitons(klass_1, klass_2)
     expect(klass_1.instance(*args)).not_to be(klass_2.instance(*args))
   end
 
