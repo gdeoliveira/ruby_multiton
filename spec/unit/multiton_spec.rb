@@ -7,9 +7,6 @@ describe Multiton do
   let(:klass) do
     Class.new do
       extend Multiton
-
-      private
-
       def initialize(*args); end
     end
   end
