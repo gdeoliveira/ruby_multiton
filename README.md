@@ -8,11 +8,11 @@
 
 Multiton is an implementation of the [multiton pattern][multiton] in pure Ruby. Some its features include:
 
-- Can be used to implement the [singleton pattern][singleton] in a very straightforwad way
-- Transparent interface that makes designing multiton classes as easy as designing regular ones
-- Support for [serializing][marshal_dump] and [deserializing][marshal_load] multiton instances
-- Clonning, duplicating and inheriting from a multiton class will create a *new* multiton class
-- Thread safety, implemented via [shared/exclusive locks][sync]
+- Can be used to implement the [singleton pattern][singleton] in a very straightforwad way.
+- Transparent interface that makes designing multiton classes as easy as designing regular ones.
+- Support for [serializing][marshal_dump] and [deserializing][marshal_load] multiton instances.
+- Clonning, duplicating and inheriting from a multiton class will create a *new* multiton class.
+- Thread safety, implemented via [shared/exclusive locks][sync].
 - [Compatible with MRI, JRuby and other Ruby implementations][travis].
 
 ## Installation
