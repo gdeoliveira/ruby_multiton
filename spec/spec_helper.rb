@@ -2,7 +2,7 @@
 
 require "simplecov" if ENV["COVERAGE_ENABLED"] && RUBY_VERSION >= "1.9"
 
-lib = File.expand_path("../../lib", __FILE__)
+lib = File.expand_path("../../lib/", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 RSpec.configure do |config|

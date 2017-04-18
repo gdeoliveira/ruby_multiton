@@ -1,7 +1,7 @@
 FROM alpine:latest
 LABEL maintainer "Gabriel de Oliveira <deoliveira.gab@gmail.com>"
 
-WORKDIR /opt/app
+WORKDIR /opt/app/
 COPY . .
 
 RUN set -euvxo pipefail\
