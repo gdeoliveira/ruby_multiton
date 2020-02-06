@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   ].freeze
 
   spec.add_runtime_dependency "extensible".freeze
+  spec.add_runtime_dependency "sync".freeze if RUBY_VERSION >= "2.7"
 
   spec.add_development_dependency "bundler".freeze
   spec.add_development_dependency "codeclimate-test-reporter".freeze
