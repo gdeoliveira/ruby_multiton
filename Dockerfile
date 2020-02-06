@@ -13,7 +13,6 @@ RUN set -euvxo pipefail\
   ruby-irb\
  && apk add --no-cache --virtual .build_dependencies\
   g++\
-  libffi-dev\
   make\
   ruby-dev\
   zlib-dev\
