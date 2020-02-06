@@ -6,6 +6,8 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "tasks/*.rake"
+Gemspec/RubyVersionGlobalsUsage:
+  Enabled: false
 Layout/LineLength:
   Max: 120
 Layout/SpaceInsideBlockBraces:
