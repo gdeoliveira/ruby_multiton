@@ -5,7 +5,6 @@ gem "extensible".freeze
 gem "rake".freeze
 gem "rspec".freeze
 gem "simplecov".freeze
-gem "sync".freeze
 
 # 1.9.3 specific versions
 gem "json".freeze, "~> 1.8.3".freeze
