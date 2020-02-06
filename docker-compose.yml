@@ -41,6 +41,7 @@ services:
     volumes:
       - ./:/opt/app/:rw
       - ~/.ssh/:/root/.ssh/:ro
+      - ~/.gitconfig:/root/.gitconfig:ro
   test:
     build: ./
     command: ["bundle", "exec", "rake", "coverage"]
