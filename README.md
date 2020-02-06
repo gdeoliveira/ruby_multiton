@@ -2,8 +2,6 @@
 
 [![Gem Version](http://img.shields.io/gem/v/ruby_multiton.svg)][gem]
 [![Build Status](http://img.shields.io/travis/gdeoliveira/ruby_multiton/master.svg)][travis]
-[![Code Climate](http://img.shields.io/codeclimate/github/gdeoliveira/ruby_multiton.svg)][codeclimate]
-[![Test Coverage](http://img.shields.io/codeclimate/coverage/github/gdeoliveira/ruby_multiton.svg)][codeclimate]
 [![Inline docs](http://inch-ci.org/github/gdeoliveira/ruby_multiton.svg?branch=master)][inch-ci]
 
 Multiton is an implementation of the [multiton pattern][multiton] in pure Ruby. Some its features include:
