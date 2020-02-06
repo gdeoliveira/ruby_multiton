@@ -6,3 +6,4 @@ gem "json".freeze
 gem "rake".freeze
 gem "rspec".freeze
 gem "simplecov".freeze
+gem "sync".freeze
