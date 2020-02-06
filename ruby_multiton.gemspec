@@ -1,4 +1,4 @@
-# coding: utf-8
+# frozen_string_literal: false
 
 lib = File.expand_path("../lib/".freeze, __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)

@@ -6,15 +6,15 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "tasks/*.rake"
+Layout/LineLength:
+  Max: 120
+Layout/SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: false
 Metrics/BlockLength:
   Enabled: false
-Metrics/LineLength:
-  Max: 120
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
 Style/HashSyntax:
   EnforcedStyle: hash_rockets
-Style/SpaceInsideBlockBraces:
-  SpaceBeforeBlockParameters: false
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-Style/VariableNumber:
-  EnforcedStyle: snake_case
