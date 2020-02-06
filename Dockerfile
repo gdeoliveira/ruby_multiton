@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.11
 LABEL maintainer "Gabriel de Oliveira <deoliveira.gab@gmail.com>"
 
 WORKDIR /opt/app/
