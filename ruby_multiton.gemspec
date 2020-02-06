@@ -31,16 +31,18 @@ Gem::Specification.new do |spec|
     "lib/".freeze
   ].freeze
 
-  spec.add_runtime_dependency "extensible".freeze, "~> 0.1".freeze
+  spec.add_runtime_dependency "extensible".freeze
 
-  spec.add_development_dependency "bundler".freeze, "~> 1.14".freeze
-  spec.add_development_dependency "codeclimate-test-reporter".freeze, "~> 1.0".freeze
-  spec.add_development_dependency "guard-rspec".freeze, "~> 4.7".freeze
-  spec.add_development_dependency "guard-rubocop".freeze, "~> 1.2".freeze
-  spec.add_development_dependency "io-console".freeze, "~> 0.4".freeze
-  spec.add_development_dependency "pry-byebug".freeze, "~> 3.4".freeze
-  spec.add_development_dependency "rake".freeze, "~> 12.0".freeze
-  spec.add_development_dependency "rdoc".freeze, "~> 5.1".freeze
-  spec.add_development_dependency "ruby_gntp".freeze, "~> 0.3".freeze
-  spec.add_development_dependency "simplecov".freeze, "~> 0.13".freeze
+  spec.add_development_dependency "bundler".freeze
+  spec.add_development_dependency "codeclimate-test-reporter".freeze
+  spec.add_development_dependency "etc".freeze
+  spec.add_development_dependency "guard-rspec".freeze
+  spec.add_development_dependency "guard-rubocop".freeze
+  spec.add_development_dependency "io-console".freeze
+  spec.add_development_dependency "json".freeze
+  spec.add_development_dependency "pry-byebug".freeze
+  spec.add_development_dependency "rake".freeze
+  spec.add_development_dependency "rdoc".freeze
+  spec.add_development_dependency "simplecov".freeze
+  spec.add_development_dependency "webrick".freeze
 end

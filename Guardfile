@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-notification :gntp, :host => "dockerhost"
-
 guard :rubocop do
   watch(%r{\A(?:\.simplecov|(?:Gem|Rake)file|\w+\.gemspec|tasks/\w+\.rake|.+\.rb)\z})
   watch(%r{\A(?:.+/)?\.rubocop\.yml\z}) {|match| File.dirname(match[0]) }
