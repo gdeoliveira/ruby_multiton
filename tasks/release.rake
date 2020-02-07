@@ -18,7 +18,7 @@ namespace :release do
     end
 
     # Login to RubyGems if needed
-    system "gem push 2>/dev/null"
+    system "gem signin 2>/dev/null"
 
     # Release the gem
     Rake::Task[:release].invoke(args[:remote])
